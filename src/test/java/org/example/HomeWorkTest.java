@@ -26,7 +26,7 @@ class HomeWorkTest {
         runTest("step.dummy.%s.2");
     }
 
-    //@Test
+    @Test
     void randTest() {
         for (int i = 0; i < 10; i++) {
             try {
@@ -38,8 +38,6 @@ class HomeWorkTest {
         }
     }
 
-
-
     @ParameterizedTest
     @ValueSource(ints = {
             1, 2, 3, 4, 5, 6, 7, 8, 9, 10
@@ -47,8 +45,6 @@ class HomeWorkTest {
     void upit(int num) {
         runTest("step.%s." + num);
     }
-
-
 
     private void runTest(String pattern) {
         execute(pattern);
@@ -66,12 +62,10 @@ class HomeWorkTest {
     private void execute(String pattern) {
         try (
                 InputStream in = new FileInputStream("step/" + String.format(pattern, "in"));
-                OutputStream answer = new FileOutputStream("target/" + String.format(pattern, "answer"), false);
+                OutputStream answer = new FileOutputStream("target/" + String.format(pattern, "answer"), false)
         ) {
             HomeWork hw = new HomeWork();
             hw.stepDanceValue(in, answer);
         }
-
     }
-
 }
