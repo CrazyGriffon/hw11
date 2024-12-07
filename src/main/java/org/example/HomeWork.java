@@ -22,13 +22,11 @@ public class HomeWork {
         StepStruct st = new StepStruct(n);
 
         int q = scanner.nextInt();
-        List<Integer> list = new ArrayList<>();
         for (int i = 0; i < q; ++i) {
             int index = scanner.nextInt();
             st.update(index - 1);
 
             int len = st.length();
-            list.add(len);
             out.write(String.valueOf(len).getBytes());
             out.write(("\r\n").getBytes());
         }
