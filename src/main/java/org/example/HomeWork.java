@@ -5,6 +5,9 @@ import lombok.SneakyThrows;
 
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class HomeWork {
 
@@ -14,11 +17,20 @@ public class HomeWork {
      */
     @SneakyThrows
     public void stepDanceValue(InputStream in, OutputStream out) {
-        out.write('3');
-        out.write('\n');
-        out.flush();
+        Scanner scanner = new Scanner(in);
+        int n = scanner.nextInt();
+        UpitStruct st = new UpitStruct(n);
+
+        int q = scanner.nextInt();
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < q; ++i) {
+            int index = scanner.nextInt();
+            st.update(index - 1);
+
+            int len = st.length();
+            list.add(len);
+            out.write(String.valueOf(len).getBytes());
+            out.write(("\r\n").getBytes());
+        }
     }
-
-
-
 }
